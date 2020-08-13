@@ -6,7 +6,6 @@ using System;
 public class DoorAutomation : MonoBehaviour
 {
     public GameObject camera;
-    // public GameObject door;
     public int threshold = 100;
     int isOutside = 1;
     // Start is called before the first frame update
@@ -19,9 +18,7 @@ public class DoorAutomation : MonoBehaviour
     void Update()
     {
         Vector3 cameraPosition = camera.transform.position;
-        // Debug.LogError("camera "+ cameraPosition);
         Vector3 doorPosition = this.transform.position;
-        // Debug.LogError("door "+ cameraPosition);
         float angleX = transform.rotation.eulerAngles.x; 
         float angleY = transform.rotation.eulerAngles.y; 
         float angleZ = transform.rotation.eulerAngles.z; 
@@ -30,9 +27,7 @@ public class DoorAutomation : MonoBehaviour
             if (angleY < 0 || angleY > 90) {
                 isOutside = isOutside * -1;
             }
-            // angleY = angleY + (0.000005f * isOutside);
-            // Debug.LogError("angleY"+angleY);
-            // transform.Rotate(angleX, angleY,angleZ);
+            
             transform.Rotate(0f,10f * isOutside * Time.deltaTime,0f);
             
         }

@@ -23,13 +23,9 @@ public class MotionDoorLeft : MonoBehaviour
 
         Vector3 doorPosition = this.transform.position;
 
-        float angleX = transform.rotation.eulerAngles.x; 
-        float angleY = transform.rotation.eulerAngles.y; 
-        float angleZ = transform.rotation.eulerAngles.z; 
         if (isClose(cameraPosition,doorPosition)) {
 
             if (doorPosition.x < -20 || doorPosition.x > -10) {
-                Debug.LogError("doorPosition.x" +doorPosition.x);
                 isOutside = isOutside * - 1;
             }
             Vector3 newPos =  new Vector3(4f * isOutside * Time.deltaTime,0,0); 
